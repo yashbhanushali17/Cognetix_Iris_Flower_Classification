@@ -9,7 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder,StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
@@ -90,6 +90,11 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42
 
 print(X_train.shape)
 print(X_test.shape)
+
+#feature scaling
+scaler=StandardScaler()
+X_train=scaler.fit_transform(X_train)
+X_test=scaler.transform(X_test)
 
 #step 6 : model training
 
